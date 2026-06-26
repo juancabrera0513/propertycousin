@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import SocialSticky from "./components/SocialSticky";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Listings from "./pages/Listings";
@@ -9,11 +10,21 @@ import ListingDetail from "./pages/ListingDetail";
 import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { hash, pathname } = useLocation();
 
   useEffect(() => {
+    if (hash) {
+      window.setTimeout(() => {
+        document
+          .getElementById(hash.replace("#", ""))
+          ?.scrollIntoView({ block: "start" });
+      }, 0);
+
+      return;
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [pathname]);
+  }, [hash, pathname]);
 
   return null;
 }
@@ -54,6 +65,7 @@ function App() {
       <ScrollToTop />
       <ScrollReveal />
       <Navbar />
+      <SocialSticky />
 
       <main>
         <Routes>

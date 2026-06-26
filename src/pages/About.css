@@ -279,6 +279,51 @@
   object-position: center top;
 }
 
+.about-cta {
+  padding-top: 1rem;
+  background:
+    radial-gradient(circle at 50% 100%, rgba(56, 182, 255, 0.1), transparent 34%),
+    #000000;
+}
+
+.about-cta__card {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.25rem;
+  border: 1px solid rgba(56, 182, 255, 0.28);
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(56, 182, 255, 0.12), transparent 42%),
+    rgba(255, 255, 255, 0.035);
+  text-align: center;
+}
+
+.about-cta__card h2 {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  color: var(--about-white);
+}
+
+.about-cta__card p {
+  max-width: 650px;
+  margin: 1rem auto 0;
+  color: var(--about-text);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.about-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.45rem;
+}
+
 @media (max-width: 1080px) {
   .about-hero__grid,
   .about-team__card,
@@ -325,7 +370,8 @@
   }
 
   .about-story__card,
-  .about-team__card {
+  .about-team__card,
+  .about-cta__card {
     padding: 1.5rem;
   }
 
@@ -365,7 +411,13 @@
   }
 
   .about-story__card,
-  .about-team__card {
+  .about-team__card,
+  .about-cta__card {
     padding: 1.15rem;
+  }
+
+  .about-cta__actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 }

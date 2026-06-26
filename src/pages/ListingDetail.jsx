@@ -58,11 +58,11 @@ function ListingDetail() {
       .then((listing) => {
         if (!isMounted) return;
         setProperty(listing);
-        setError(listing ? "" : "Listing not found.");
+        setError(listing ? "" : "We could not find this home.");
       })
       .catch(() => {
         if (!isMounted) return;
-        setError("This listing is temporarily unavailable.");
+        setError("This home is not available right now.");
       })
       .finally(() => {
         if (isMounted) setIsLoading(false);
@@ -238,7 +238,7 @@ function ListingDetail() {
       <>
         <Seo
           title="Listing Unavailable"
-          description="This property listing is currently unavailable."
+          description="This home is not available right now."
           path={`/listings/${mls}/${listingID}`}
           noIndex
         />
@@ -330,7 +330,7 @@ function ListingDetail() {
         ) : null}
 
         <aside className="listing-detail__panel listing-detail__snapshot">
-          <h2>MLS Snapshot</h2>
+          <h2>Home Snapshot</h2>
           <dl className="listing-detail__list">
             <div>
               <dt>
@@ -400,14 +400,19 @@ function ListingDetail() {
 
         <article className="listing-detail__panel listing-detail__remarks">
           <h2>Property Details</h2>
-          <p>{formatValue(listing.publicRemarks, "No remarks available.")}</p>
+          <p>
+            {formatValue(
+              listing.publicRemarks,
+              "Property details are being updated."
+            )}
+          </p>
         </article>
 
         <section className="listing-detail__cta">
           <div>
             <h2>Schedule a private showing for this property.</h2>
             <p>
-              Send the address or MLS number to The Property Cousins and get
+              Send the address or listing number to The Property Cousins and get
               help comparing details, availability, and next steps.
             </p>
           </div>

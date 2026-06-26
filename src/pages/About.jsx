@@ -1,5 +1,6 @@
 import "./About.css";
 
+import { Link } from "react-router-dom";
 import teamPhoto from "../assets/images/property-cousins-team.webp";
 import chrisPhoto from "../assets/images/chris-abling.webp";
 import travisPhoto from "../assets/images/travis-greer.webp";
@@ -130,8 +131,12 @@ function About() {
           </div>
 
           <div className="about-team__grid">
-            <article className="about-team__card">
-              <div className="about-team__image-wrap" data-reveal="left">
+            <article className="about-team__card" data-reveal="up">
+              <div
+                className="about-team__image-wrap"
+                data-reveal="left"
+                style={{ "--reveal-delay": "120ms" }}
+              >
                 <div className="about-page__photo">
                   <img
                     src={chrisPhoto}
@@ -141,7 +146,11 @@ function About() {
                 </div>
               </div>
 
-              <div className="about-team__content" data-reveal="right">
+              <div
+                className="about-team__content"
+                data-reveal="right"
+                style={{ "--reveal-delay": "220ms" }}
+              >
                 <h2>Chris Abling</h2>
 
                 <div className="about-page__copy">
@@ -176,8 +185,15 @@ function About() {
               </div>
             </article>
 
-            <article className="about-team__card about-team__card--reverse">
-              <div className="about-team__image-wrap" data-reveal="right">
+            <article
+              className="about-team__card about-team__card--reverse"
+              data-reveal="up"
+            >
+              <div
+                className="about-team__image-wrap"
+                data-reveal="right"
+                style={{ "--reveal-delay": "120ms" }}
+              >
                 <div className="about-page__photo">
                   <img
                     src={travisPhoto}
@@ -187,7 +203,11 @@ function About() {
                 </div>
               </div>
 
-              <div className="about-team__content" data-reveal="left">
+              <div
+                className="about-team__content"
+                data-reveal="left"
+                style={{ "--reveal-delay": "220ms" }}
+              >
                 <h2>Travis Greer</h2>
 
                 <div className="about-page__copy">
@@ -227,6 +247,28 @@ function About() {
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-cta section">
+        <div className="container">
+          <div className="about-cta__card" data-reveal="up">
+            <h2>Have questions about your next move?</h2>
+            <p>
+              Whether you are just starting to think about buying, selling, or
+              figuring out what comes next, Chris and Travis are happy to help
+              you talk through it.
+            </p>
+
+            <div className="about-cta__actions">
+              <Link to="/#contact" className="btn btn-primary">
+                Start a Conversation
+              </Link>
+              <Link to="/listings" className="btn btn-secondary">
+                Browse Homes
+              </Link>
+            </div>
           </div>
         </div>
       </section>

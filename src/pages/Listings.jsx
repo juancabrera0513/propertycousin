@@ -6,7 +6,7 @@ function Listings() {
     <>
       <Seo
         title="Property Search"
-        description="Search current MLS listings and recent real estate results across Jefferson County and the greater St. Louis area."
+        description="Search available homes and recent real estate results across Jefferson County and the greater St. Louis area."
         path="/listings"
       />
       <SoldPropertiesSection />

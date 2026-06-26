@@ -28,14 +28,14 @@ function Navbar() {
         <nav className={`navbar__links ${isOpen ? "navbar__links--open" : ""}`}>
           <NavLink to="/" onClick={closeMenu}>Home</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About Us</NavLink>
-          <NavLink to="/listing" onClick={closeMenu}>Listings</NavLink>
-          <a href="/#testimonials" onClick={closeMenu}>Testimonials</a>
-          <a href="/#contact" onClick={closeMenu}>Contact</a>
+          <NavLink to="/listings" onClick={closeMenu}>Listings</NavLink>
+          <Link to="/#testimonials" onClick={closeMenu}>Testimonials</Link>
+          <Link to="/#contact" onClick={closeMenu}>Contact</Link>
         </nav>
 
-        <a href="/#contact" className="navbar__cta">
+        <Link to="/#contact" className="navbar__cta">
           Work With Us
-        </a>
+        </Link>
       </div>
     </header>
   );

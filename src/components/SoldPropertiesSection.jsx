@@ -45,7 +45,9 @@ function SoldPropertiesSection({ variant = "full" }) {
       })
       .catch(() => {
         if (!isMounted) return;
-        setListingsError("Live MLS data is temporarily unavailable.");
+        setListingsError(
+          "Some listings may take a moment to update. Reach out if you want help finding a specific home."
+        );
       })
       .finally(() => {
         if (isMounted) setIsLoadingListings(false);
@@ -163,8 +165,8 @@ function SoldPropertiesSection({ variant = "full" }) {
           </h2>
           <p>
             {isCompact
-              ? "Search live MLS results, preview the newest matches, and open the full search when you are ready to compare more homes."
-              : "Browse all available MLS search results from the Property Cousins feed, then narrow the market by city, budget, bedrooms, and status."}
+              ? "Preview available homes, narrow down what fits, and open the full search when you are ready to compare more options."
+              : "Browse available homes and narrow the market by city, budget, bedrooms, and status."}
           </p>
         </div>
 
@@ -299,7 +301,7 @@ function SoldPropertiesSection({ variant = "full" }) {
             <span>
               <SlidersHorizontal size={16} aria-hidden="true" />
               {isLoadingListings
-                ? "Loading live MLS listings..."
+                ? "Loading available homes..."
                 : `${filteredProperties.length} matching homes`}
             </span>
             <div className="listing-search__actions">
@@ -326,14 +328,11 @@ function SoldPropertiesSection({ variant = "full" }) {
           </div>
 
           {listingsError ? (
-            <p className="listing-search__note">
-              {listingsError} Showing local sample properties until the feed is
-              available again.
-            </p>
+            <p className="listing-search__note">{listingsError}</p>
           ) : (
             <p className="listing-search__note">
-              Live data is sourced from the same Xannello/MARIS IDX search used
-              by the Property Cousins search page.
+              Use the filters to compare homes by location, price, bedrooms,
+              and status.
             </p>
           )}
         </div>

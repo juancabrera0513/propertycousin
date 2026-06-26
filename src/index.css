@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -29,6 +30,7 @@ body {
   font-family: "Source Code Pro", monospace;
   background: var(--black);
   color: var(--white);
+  overflow-x: hidden;
 }
 
 body::selection {
@@ -65,6 +67,13 @@ button {
 
 .section {
   padding: 108px 0;
+}
+
+#listings,
+#testimonials,
+#contact,
+#results {
+  scroll-margin-top: 104px;
 }
 
 .btn {
@@ -106,6 +115,131 @@ button {
   border-color: var(--blue);
   color: var(--blue);
   background: rgba(56, 182, 255, 0.06);
+}
+
+.social-sticky {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  z-index: 45;
+  display: grid;
+  gap: 10px;
+  transform: translateY(-50%);
+}
+
+.social-sticky__label {
+  writing-mode: vertical-rl;
+  justify-self: center;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.social-sticky__link {
+  width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.58);
+  color: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  animation: socialPulse 2.8s ease-in-out infinite;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social-sticky__link:hover {
+  border-color: rgba(56, 182, 255, 0.62);
+  background: rgba(56, 182, 255, 0.13);
+  color: var(--blue);
+  animation-play-state: paused;
+  transform: translateX(-3px);
+}
+
+.social-sticky__link svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.social-sticky__link[aria-label="Facebook"] svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.social-sticky__link[aria-label="Facebook"] {
+  color: var(--blue);
+}
+
+.social-sticky__link[aria-label="Instagram"] {
+  color: #ffffff;
+  background:
+    linear-gradient(#000000, #000000) padding-box,
+    linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5) border-box;
+  border-color: transparent;
+}
+
+.social-sticky__link[aria-label="Instagram"]:hover {
+  background:
+    linear-gradient(135deg, rgba(254, 218, 117, 0.18), rgba(214, 41, 118, 0.18), rgba(79, 91, 213, 0.18)) padding-box,
+    linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5) border-box;
+  color: #ffffff;
+}
+
+.social-sticky__link:nth-of-type(2) {
+  animation-delay: 0.45s;
+}
+
+.social-sticky__link[aria-label="Instagram"] {
+  animation-name: instagramPulse;
+}
+
+@keyframes socialPulse {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+    color: rgba(255, 255, 255, 0.86);
+  }
+
+  45% {
+    border-color: rgba(56, 182, 255, 0.64);
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.24),
+      0 0 0 4px rgba(56, 182, 255, 0.08),
+      0 0 24px rgba(56, 182, 255, 0.22);
+    color: var(--blue);
+  }
+}
+
+@keyframes instagramPulse {
+  0%,
+  100% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+  }
+
+  45% {
+    box-shadow:
+      0 16px 40px rgba(0, 0, 0, 0.24),
+      0 0 0 4px rgba(214, 41, 118, 0.1),
+      0 0 24px rgba(214, 41, 118, 0.28);
+  }
 }
 
 /* Navbar */
@@ -240,24 +374,25 @@ button {
   display: flex;
   align-items: center;
   min-height: calc(100vh - 190px);
+  width: min(100% - 48px, 1320px);
 }
 
 .hero__content {
-  max-width: 860px;
+  max-width: 720px;
 }
 
 .hero h1 {
   margin: 0;
-  max-width: 760px;
+  max-width: 690px;
   font-family: "Times New Roman", Times, serif;
-  font-size: clamp(3.3rem, 7vw, 6.9rem);
+  font-size: clamp(3.15rem, 6.15vw, 6.25rem);
   font-weight: 500;
-  line-height: 0.94;
+  line-height: 0.96;
   letter-spacing: -0.055em;
 }
 
 .hero__text {
-  max-width: 625px;
+  max-width: 585px;
   margin: 30px 0 0;
   color: var(--muted);
   font-size: clamp(1rem, 1.4vw, 1.16rem);
@@ -750,6 +885,41 @@ button {
     top: 84px;
   }
 
+  .social-sticky {
+    right: 50%;
+    top: auto;
+    bottom: 14px;
+    align-items: center;
+    grid-auto-flow: column;
+    gap: 8px;
+    padding: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(16px);
+    transform: translateX(50%);
+  }
+
+  .social-sticky__label {
+    writing-mode: horizontal-tb;
+    padding: 0 4px 0 6px;
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
+  }
+
+  .social-sticky__link {
+    width: 38px;
+    height: 38px;
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: none;
+  }
+
+  .social-sticky__link:hover {
+    transform: translateY(-2px);
+  }
+
   .hero h1 {
     font-size: clamp(3rem, 15vw, 4.7rem);
   }
@@ -1081,7 +1251,7 @@ button {
 
 .hero {
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.74) 46%, rgba(0, 0, 0, 0.44) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.72) 34%, rgba(0, 0, 0, 0.34) 62%, rgba(0, 0, 0, 0.16) 100%),
     radial-gradient(circle at 84% 20%, rgba(56, 182, 255, 0.18), transparent 28%),
     url("./assets/images/hero.jpg") center top / cover no-repeat;
 }
@@ -1170,8 +1340,26 @@ button {
 /* Mobile performance fix */
 
 @media (max-width: 768px) {
+  [data-reveal="left"],
+  [data-reveal="right"] {
+    transform: translateY(42px);
+  }
+
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.24) 0%, rgba(0, 0, 0, 0.44) 46%, rgba(0, 0, 0, 0.9) 100%),
+      radial-gradient(circle at 82% 18%, rgba(56, 182, 255, 0.14), transparent 30%),
+      url("./assets/images/hero.jpg") 42% top / cover no-repeat;
+  }
+
   .stats-section {
     background-attachment: scroll;
+  }
+
+  .contact-section {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.9)),
+      url("./assets/images/property-cousins-team.webp") center top / cover no-repeat;
   }
 
   .about-preview__photo {
