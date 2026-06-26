@@ -500,6 +500,10 @@ button {
   text-transform: uppercase;
 }
 
+.testimonial-actions {
+  display: none;
+}
+
 /* Contact */
 
 .contact-section {
@@ -772,6 +776,17 @@ button {
   .stats-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .testimonial-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
   }
 
   .stat-card,
