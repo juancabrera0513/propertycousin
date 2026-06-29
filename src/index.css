@@ -14,6 +14,9 @@
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
+  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Playfair Display", "Times New Roman", Times, serif;
+  --heading-spacing: -0.035em;
 }
 
 * {
@@ -27,10 +30,12 @@ html {
 
 body {
   margin: 0;
-  font-family: "Source Code Pro", monospace;
+  font-family: var(--font-body);
   background: var(--black);
   color: var(--white);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
 }
 
 body::selection {
@@ -265,7 +270,7 @@ button {
   display: grid;
   gap: 4px;
   min-width: 215px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: 1.12rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -273,7 +278,7 @@ button {
 
 .navbar__logo small {
   color: var(--blue);
-  font-family: "Source Code Pro", monospace;
+  font-family: var(--font-body);
   font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.24em;
@@ -384,11 +389,11 @@ button {
 .hero h1 {
   margin: 0;
   max-width: 690px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(3.15rem, 6.15vw, 6.25rem);
   font-weight: 500;
   line-height: 0.96;
-  letter-spacing: -0.055em;
+  letter-spacing: var(--heading-spacing);
 }
 
 .hero__text {
@@ -440,11 +445,11 @@ button {
 .section-heading h2,
 .contact-section h2 {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.35rem, 4.6vw, 4.65rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--heading-spacing);
 }
 
 .about-preview__content h2 {
@@ -550,7 +555,7 @@ button {
 .stat-card h3 {
   margin: 0;
   color: var(--white);
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.85rem, 2.8vw, 3.15rem);
   font-weight: 500;
   line-height: 1.05;
@@ -583,11 +588,11 @@ button {
 .market-card h3 {
   margin: 0;
   max-width: 680px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.2vw, 3.2rem);
   font-weight: 500;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--heading-spacing);
 }
 
 .market-card p {
@@ -621,10 +626,12 @@ button {
 
 .testimonial-card p {
   margin: 0;
-  color: var(--text);
-  font-family: "Times New Roman", Times, serif;
-  font-size: clamp(1.04rem, 1.15vw, 1.18rem);
-  line-height: 1.62;
+  color: rgba(255, 255, 255, 0.84);
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1vw, 1.06rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.72;
 }
 
 .testimonial-card h4 {
@@ -742,7 +749,7 @@ button {
 .footer h3 {
   margin: 0;
   color: var(--white);
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-weight: 500;
 }
 
@@ -1241,7 +1248,6 @@ button {
 }
 
 .sold-card,
-.testimonial-card,
 .stat-card,
 .listing-detail__panel {
   will-change: transform;
@@ -1284,7 +1290,7 @@ button {
   overflow: hidden;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.82)),
-    url("./assets/images/property-cousins-team.webp") center / cover no-repeat;
+    url("./assets/images/property-cousins-team2.webp") center / cover no-repeat;
 }
 
 .contact-section::before {
@@ -1804,11 +1810,11 @@ button {
 .sold-card__top h3 {
   margin: 0;
   color: var(--white);
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.45rem, 1.8vw, 1.9rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--heading-spacing);
 }
 
 .sold-card__top span {
@@ -1877,10 +1883,10 @@ button {
 
 .listing-empty h3 {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 500;
-  letter-spacing: -0.035em;
+  letter-spacing: var(--heading-spacing);
 }
 
 .listing-empty p {
@@ -1978,7 +1984,7 @@ button {
 
 .listing-detail__summary h1 {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.25rem, 4vw, 4.6rem);
   font-weight: 500;
   line-height: 1;
@@ -2087,7 +2093,7 @@ button {
 
 .listing-detail__panel h2 {
   margin: 0 0 18px;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.7rem, 2.5vw, 2.55rem);
   font-weight: 500;
   letter-spacing: 0;
@@ -2177,7 +2183,7 @@ button {
 
 .listing-detail__cta h2 {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 3rem);
   font-weight: 500;
   line-height: 1.05;
@@ -2524,11 +2530,11 @@ button {
 .not-found__content h1 {
   max-width: 12ch;
   margin: 0 auto 1.25rem;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: 500;
   line-height: 0.95;
-  letter-spacing: -0.055em;
+  letter-spacing: var(--heading-spacing);
 }
 
 .not-found__content > p {

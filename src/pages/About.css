@@ -59,11 +59,11 @@
 
 .about-page__title {
   margin: 0 0 1.6rem;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 6vw, 5.9rem);
   font-weight: 500;
   line-height: 0.95;
-  letter-spacing: -0.055em;
+  letter-spacing: var(--heading-spacing);
   color: var(--about-white);
   max-width: 12ch;
 }
@@ -196,7 +196,7 @@
 .about-story__copy p:first-child,
 .about-story__copy p:last-child {
   color: var(--about-white);
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: 1.38rem;
   line-height: 1.55;
 }
@@ -215,11 +215,11 @@
 
 .about-team__header h2 {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.4rem, 4.8vw, 4.2rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--heading-spacing);
   color: var(--about-white);
 }
 
@@ -256,11 +256,11 @@
 
 .about-team__content h2 {
   margin: 0 0 1.25rem;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.2rem, 4vw, 3.6rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--heading-spacing);
   color: var(--about-white);
 }
 
@@ -300,11 +300,11 @@
 
 .about-cta__card h2 {
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 3.35rem);
   font-weight: 500;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: var(--heading-spacing);
   color: var(--about-white);
 }
 
