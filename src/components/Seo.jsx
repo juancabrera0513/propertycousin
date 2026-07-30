@@ -1,8 +1,5 @@
 import { useEffect } from "react";
-
-const SITE_NAME = "The Property Cousins Real Estate Team";
-const SITE_URL = "https://www.thepropertycousins.org";
-const DEFAULT_IMAGE = "/images/property-cousins-team.webp";
+import { getAbsoluteSiteUrl, siteConfig } from "../config/site";
 
 function upsertMeta(selector, attributes) {
   let element = document.head.querySelector(selector);
@@ -29,29 +26,31 @@ function upsertCanonical(url) {
   canonical.setAttribute("href", url);
 }
 
-function getAbsoluteUrl(value) {
-  if (!value) return SITE_URL;
-  if (/^https?:\/\//i.test(value)) return value;
-  return `${SITE_URL}${value.startsWith("/") ? value : `/${value}`}`;
-}
-
 function getDefaultStructuredData() {
   return {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
-    name: SITE_NAME,
-    url: SITE_URL,
-    image: getAbsoluteUrl(DEFAULT_IMAGE),
-    telephone: "+1-314-302-5767",
-    email: "propertycousinsstl@gmail.com",
-    areaServed: [
-      "Jefferson County, Missouri",
-      "Greater St. Louis, Missouri",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    image: getAbsoluteSiteUrl(siteConfig.socialImage),
+    telephone: siteConfig.phoneInternational,
+    email: siteConfig.email,
+    areaServed: siteConfig.areaServed,
+    sameAs: Object.values(siteConfig.socialLinks),
+    memberOf: {
+      "@type": "RealEstateAgent",
+      name: siteConfig.brokerage,
+    },
+    knowsAbout: [
+      "Residential real estate",
+      "First-time home buying",
+      "Home selling",
+      "Jefferson County real estate",
+      "Greater St. Louis real estate",
     ],
     address: {
       "@type": "PostalAddress",
-      addressRegion: "MO",
-      addressCountry: "US",
+      ...siteConfig.address,
     },
   };
 }
@@ -60,15 +59,17 @@ function Seo({
   title,
   description,
   path = "/",
-  image = DEFAULT_IMAGE,
+  image = siteConfig.socialImage,
   type = "website",
   noIndex = false,
   structuredData,
+  fullTitle,
 }) {
   useEffect(() => {
-    const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
-    const canonicalUrl = getAbsoluteUrl(path);
-    const imageUrl = getAbsoluteUrl(image);
+    const pageTitle =
+      fullTitle || (title ? `${title} | ${siteConfig.name}` : siteConfig.name);
+    const canonicalUrl = getAbsoluteSiteUrl(path);
+    const imageUrl = getAbsoluteSiteUrl(image);
 
     document.title = pageTitle;
     document.documentElement.lang = "en";
@@ -103,7 +104,15 @@ function Seo({
     });
     upsertMeta('meta[property="og:site_name"]', {
       property: "og:site_name",
-      content: SITE_NAME,
+      content: siteConfig.name,
+    });
+    upsertMeta('meta[property="og:locale"]', {
+      property: "og:locale",
+      content: "en_US",
+    });
+    upsertMeta('meta[property="og:image:alt"]', {
+      property: "og:image:alt",
+      content: `${siteConfig.shortName} real estate team`,
     });
     upsertMeta('meta[name="twitter:card"]', {
       name: "twitter:card",
@@ -120,6 +129,10 @@ function Seo({
     upsertMeta('meta[name="twitter:image"]', {
       name: "twitter:image",
       content: imageUrl,
+    });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: "twitter:image:alt",
+      content: `${siteConfig.shortName} real estate team`,
     });
     upsertCanonical(canonicalUrl);
 
@@ -143,6 +156,7 @@ function Seo({
     structuredData,
     title,
     type,
+    fullTitle,
   ]);
 
   return null;

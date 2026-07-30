@@ -5,8 +5,8 @@ function Listings() {
   return (
     <>
       <Seo
-        title="Property Search"
-        description="Search available homes and recent real estate results across Jefferson County and the greater St. Louis area."
+        fullTitle="Homes for Sale in Jefferson County | The Property Cousins"
+        description="Search homes for sale across Jefferson County and Greater St. Louis with local guidance from The Property Cousins Real Estate Team."
         path="/listings"
       />
       <SoldPropertiesSection />

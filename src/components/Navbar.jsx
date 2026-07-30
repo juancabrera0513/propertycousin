@@ -29,7 +29,6 @@ function Navbar() {
           <NavLink to="/" onClick={closeMenu}>Home</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About Us</NavLink>
           <NavLink to="/listings" onClick={closeMenu}>Listings</NavLink>
-          <Link to="/#testimonials" onClick={closeMenu}>Testimonials</Link>
           <Link to="/#contact" onClick={closeMenu}>Contact</Link>
         </nav>
 

@@ -1,9 +1,9 @@
 import "./About.css";
 
 import { Link } from "react-router-dom";
-import teamPhoto from "../assets/images/property-cousins-team.webp";
-import chrisPhoto from "../assets/images/chris-abling.webp";
-import travisPhoto from "../assets/images/travis-greer.webp";
+import teamPhoto from "../assets/images/team-portrait.webp";
+import chrisPhoto from "../assets/images/chris-abling-portrait.webp";
+import travisPhoto from "../assets/images/travis-greer-portrait.webp";
 import Seo from "../components/Seo";
 
 function About() {

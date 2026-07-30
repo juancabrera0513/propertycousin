@@ -49,7 +49,7 @@ async function requestListings(endpoint, parameter) {
 }
 
 export function getListingImageUrl(listing) {
-  if (!listing?.listingID || !listing?.MLS) return "/images/demo-sold-1.jpg";
+  if (!listing?.listingID || !listing?.MLS) return "/images/sample-listing-1.jpg";
 
   const paddedListingId = String(listing.listingID).padStart(10, "0");
   const listingPath = paddedListingId.match(/.{1,2}/g)?.join("/");

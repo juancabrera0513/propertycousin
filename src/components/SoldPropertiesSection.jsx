@@ -379,7 +379,7 @@ function SoldPropertiesSection({ variant = "full" }) {
                       alt={`${property.address}, ${property.city}`}
                       className="sold-card__image"
                       onError={(event) => {
-                        event.currentTarget.src = "/images/demo-sold-1.jpg";
+                        event.currentTarget.src = "/images/sample-listing-1.jpg";
                       }}
                     />
 

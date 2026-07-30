@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import teamPhoto from "../assets/images/property-cousins-team.webp";
+import teamPhoto from "../assets/images/team-portrait.webp";
 
 function AboutPreview() {
   return (

@@ -10,7 +10,8 @@ function Home() {
   return (
     <>
       <Seo
-        description="The Property Cousins help buyers and sellers across Jefferson County and greater St. Louis move with expert strategy and personal service."
+        fullTitle="The Property Cousins | Jefferson County Real Estate"
+        description="Work with The Property Cousins, an award-winning dual-agent real estate team helping buyers and sellers across Jefferson County and Greater St. Louis."
         path="/"
       />
       <Hero />

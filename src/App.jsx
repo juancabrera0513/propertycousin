@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SocialSticky from "./components/SocialSticky";
@@ -71,8 +71,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/listing" element={<Listings />} />
-          <Route path="/listing/:mls/:listingID" element={<ListingDetail />} />
+          <Route path="/listing" element={<Navigate to="/listings" replace />} />
+          <Route
+            path="/listing/:mls/:listingID"
+            element={<LegacyListingRedirect />}
+          />
           <Route path="/listings" element={<Listings />} />
           <Route path="/listings/:mls/:listingID" element={<ListingDetail />} />
           <Route path="*" element={<NotFound />} />
@@ -82,6 +85,11 @@ function App() {
       <Footer />
     </div>
   );
+}
+
+function LegacyListingRedirect() {
+  const { pathname } = useLocation();
+  return <Navigate to={pathname.replace(/^\/listing\//, "/listings/")} replace />;
 }
 
 export default App;

@@ -1,14 +1,25 @@
+import desktopHero from "../assets/images/award-property-cousins-brand-2025-2026.jpg";
+import mobileHero from "../assets/images/award-best-real-estate-team-2025-2026.jpg";
+
 function Hero() {
   return (
     <section className="hero">
+      <picture className="hero__visual">
+        <source media="(max-width: 768px)" srcSet={mobileHero} />
+        <img
+          className="hero__image"
+          src={desktopHero}
+          alt="The Property Cousins, voted Best Real Estate Team in Jefferson County for 2025 and 2026"
+        />
+      </picture>
+
       <div className="container hero__grid">
         <div className="hero__content">
-          <h1>Real Estate Guidance That Helps You Feel Confident.</h1>
+          <h1>Real Estate Guidance You Can Feel Confident About.</h1>
 
           <p className="hero__text">
-            The Property Cousins are here to make the process feel clear,
-            organized, and a lot less overwhelming — helping you understand each
-            step, feel taken care of, and move forward with confidence.
+            Clear guidance, personal support, and two agents helping you move
+            forward with confidence.
           </p>
 
           <div className="hero__actions">
@@ -21,7 +32,6 @@ function Hero() {
             </a>
           </div>
         </div>
-
       </div>
     </section>
   );

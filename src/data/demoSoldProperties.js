@@ -9,7 +9,7 @@ export const demoSoldProperties = [
     sqft: "1,662",
     address: "110 Rock Bridge Rd",
     city: "Villa Ridge, MO",
-    image: "/images/demo-sold-1.jpg",
+    image: "/images/sample-listing-1.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ export const demoSoldProperties = [
     sqft: "2,100",
     address: "559 Autumn Ridge Dr",
     city: "Arnold, MO",
-    image: "/images/demo-sold-2.jpg",
+    image: "/images/sample-listing-2.jpg",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ export const demoSoldProperties = [
     sqft: "900",
     address: "1491 Hearst Ln",
     city: "Barnhart, MO",
-    image: "/images/demo-sold-3.jpg",
+    image: "/images/sample-listing-3.jpg",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const demoSoldProperties = [
     sqft: "2,450",
     address: "827 Maple Creek Ct",
     city: "Imperial, MO",
-    image: "/images/demo-sold-4.jpg",
+    image: "/images/sample-listing-4.jpg",
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ export const demoSoldProperties = [
     sqft: "1,780",
     address: "2435 Meadow View Dr",
     city: "Festus, MO",
-    image: "/images/demo-sold-5.jpg",
+    image: "/images/sample-listing-5.jpg",
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ export const demoSoldProperties = [
     sqft: "2,240",
     address: "617 Stonebridge Ln",
     city: "De Soto, MO",
-    image: "/images/demo-sold-6.jpg",
+    image: "/images/sample-listing-6.jpg",
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ export const demoSoldProperties = [
     sqft: "1,215",
     address: "904 Ridgeview Dr",
     city: "Cedar Hill, MO",
-    image: "/images/demo-sold-7.jpg",
+    image: "/images/sample-listing-7.jpg",
   },
   {
     id: 8,
@@ -93,6 +93,6 @@ export const demoSoldProperties = [
     sqft: "2,620",
     address: "1187 Stone Hollow Ct",
     city: "High Ridge, MO",
-    image: "/images/demo-sold-7.jpg",
+    image: "/images/sample-listing-7.jpg",
   },
 ];

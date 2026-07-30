@@ -6,6 +6,7 @@ import {
   getListingPhotoUrls,
 } from "../services/xannelloListings";
 import Seo from "../components/Seo";
+import { getAbsoluteSiteUrl, siteConfig } from "../config/site";
 
 function formatValue(value, fallback = "-") {
   if (value === null || value === undefined || value === "") return fallback;
@@ -88,7 +89,9 @@ function ListingDetail() {
       description:
         listing.publicRemarks ||
         `${property.beds} bedroom property listed by The Property Cousins.`,
-      url: `https://www.thepropertycousins.org/listings/${property.MLS}/${property.listingID}`,
+      url: getAbsoluteSiteUrl(
+        `/listings/${property.MLS}/${property.listingID}`
+      ),
       image: photos,
       datePosted: listing.listDate || listing.statusDate,
       offers: {
@@ -301,7 +304,7 @@ function ListingDetail() {
               src={photos[selectedPhoto]}
               alt={`${property.address}, ${property.city}`}
               onError={(event) => {
-                event.currentTarget.src = "/images/demo-sold-1.jpg";
+                event.currentTarget.src = "/images/sample-listing-1.jpg";
               }}
             />
             <span>{property.status}</span>
@@ -418,12 +421,12 @@ function ListingDetail() {
           </div>
 
           <div className="listing-detail__cta-actions">
-            <a className="btn btn-primary" href="tel:+13143025767">
-              Call (314) 302-5767
+            <a className="btn btn-primary" href={siteConfig.phoneHref}>
+              Call {siteConfig.phoneDisplay}
             </a>
             <a
               className="btn btn-secondary"
-              href={`mailto:propertycousinsstl@gmail.com?subject=${encodeURIComponent(
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(
                 `Showing request for ${property.address}`
               )}&body=${encodeURIComponent(
                 `Hi, I would like more information about ${property.address}, ${property.city}. MLS #${property.listingID}.`
