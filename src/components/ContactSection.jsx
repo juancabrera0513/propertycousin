@@ -3,6 +3,14 @@ import { Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "../config/site";
 
 const EMAILJS_ENDPOINT = "https://api.emailjs.com/api/v1.0/email/send";
+const EMAILJS_CONFIG = {
+  serviceId:
+    import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_uu7z9bd",
+  templateId:
+    import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_4p2atck",
+  publicKey:
+    import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "PURrjQjD4G-wwY-Ym",
+};
 
 function ContactSection() {
   const [status, setStatus] = useState("idle");
@@ -13,9 +21,7 @@ function ContactSection() {
 
     const form = event.currentTarget;
     const formData = new FormData(form);
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const { serviceId, templateId, publicKey } = EMAILJS_CONFIG;
 
     if (!serviceId || !templateId || !publicKey) {
       setStatus("error");
