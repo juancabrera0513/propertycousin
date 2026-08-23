@@ -1,14 +1,29 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const closeMenu = () => setIsOpen(false);
   const goHome = () => {
     closeMenu();
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
+  const contactPath = pathname === "/listings"
+    ? "/listings#contact-form"
+    : "/#contact-form";
+  const goToContact = () => {
+    closeMenu();
+
+    if (pathname !== "/" && pathname !== "/listings") return;
+
+    window.requestAnimationFrame(() => {
+      document
+        .getElementById("contact-form")
+        ?.scrollIntoView({ block: "start" });
+    });
   };
 
   return (
@@ -33,10 +48,10 @@ function Navbar() {
           <NavLink to="/" onClick={goHome}>Home</NavLink>
           <NavLink to="/about" onClick={closeMenu}>About Us</NavLink>
           <NavLink to="/listings" onClick={closeMenu}>Listings</NavLink>
-          <Link to="/#contact" onClick={closeMenu}>Contact</Link>
+          <Link to={contactPath} onClick={goToContact}>Contact</Link>
         </nav>
 
-        <Link to="/#contact" className="navbar__cta">
+        <Link to={contactPath} className="navbar__cta" onClick={goToContact}>
           Work With Us
         </Link>
       </div>

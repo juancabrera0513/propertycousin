@@ -23,7 +23,7 @@ function Hero() {
           </p>
 
           <div className="hero__actions">
-            <a href="#contact" className="btn btn-primary">
+            <a href="#contact-form" className="btn btn-primary">
               Schedule a Consultation
             </a>
 

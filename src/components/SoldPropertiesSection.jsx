@@ -58,6 +58,18 @@ function SoldPropertiesSection({ variant = "full" }) {
     };
   }, []);
 
+  useEffect(() => {
+    if (isLoadingListings || window.location.hash !== "#contact-form") return;
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      document
+        .getElementById("contact-form")
+        ?.scrollIntoView({ block: "start" });
+    });
+
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [isLoadingListings]);
+
   const properties = useMemo(() => {
     if (liveProperties.length > 0) return liveProperties;
     return demoSoldProperties.map(normalizeFallbackProperty);

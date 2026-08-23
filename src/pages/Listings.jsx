@@ -1,4 +1,5 @@
 import SoldPropertiesSection from "../components/SoldPropertiesSection";
+import ContactSection from "../components/ContactSection";
 import Seo from "../components/Seo";
 
 function Listings() {
@@ -10,6 +11,7 @@ function Listings() {
         path="/listings"
       />
       <SoldPropertiesSection />
+      <ContactSection />
     </>
   );
 }

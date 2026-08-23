@@ -102,6 +102,7 @@ function ContactSection() {
         </div>
 
         <form
+          id="contact-form"
           className="contact-form"
           data-reveal="right"
           onSubmit={handleSubmit}

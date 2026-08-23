@@ -262,7 +262,7 @@ function About() {
             </p>
 
             <div className="about-cta__actions">
-              <Link to="/#contact" className="btn btn-primary">
+              <Link to="/#contact-form" className="btn btn-primary">
                 Start a Conversation
               </Link>
               <Link to="/listings" className="btn btn-secondary">

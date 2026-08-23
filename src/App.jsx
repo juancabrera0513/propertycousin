@@ -10,7 +10,7 @@ import ListingDetail from "./pages/ListingDetail";
 import NotFound from "./pages/NotFound";
 
 function ScrollToTop() {
-  const { hash, pathname } = useLocation();
+  const { hash, key, pathname } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -24,7 +24,7 @@ function ScrollToTop() {
     }
 
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, [hash, pathname]);
+  }, [hash, key, pathname]);
 
   return null;
 }
