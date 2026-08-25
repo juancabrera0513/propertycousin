@@ -39,7 +39,11 @@ function formatStatValue(parsed, currentValue) {
   }
 
   if (parsed.hasThousand) {
-    return `${parsed.hasDollar ? "$" : ""}${Math.round(currentValue)}K`;
+    const fractionDigits = parsed.number % 1 === 0 ? 0 : 1;
+
+    return `${parsed.hasDollar ? "$" : ""}${currentValue.toFixed(
+      fractionDigits
+    )}K`;
   }
 
   if (parsed.hasPercent) {
@@ -139,16 +143,18 @@ function StatsSection() {
         <div className="section-heading section-heading--center">
           <h2>Proven local insight with a relationship-first approach.</h2>
           <p>
-            A focused real estate team helping buyers and sellers across
-            Jefferson County and the greater St. Louis area make confident moves
-            with clear guidance from start to finish.
+            Combined production from Chris and Travis over the prior five years,
+            helping buyers and sellers across Jefferson County and the greater
+            St. Louis area make confident moves.
           </p>
         </div>
 
         <div className="stats-grid">
           {stats.map((item, index) => (
             <div
-              className="stat-card"
+              className={`stat-card${
+                item.value.includes("-") ? " stat-card--range" : ""
+              }`}
               data-reveal="up"
               style={{ "--reveal-delay": `${index * 120}ms` }}
               key={item.label}

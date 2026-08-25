@@ -1,18 +1,18 @@
 export const stats = [
   {
-    value: "28",
+    value: "50",
     label: "Closed Sales",
   },
   {
-    value: "$6.6M",
+    value: "$12.2M",
     label: "Total Sales Volume",
   },
   {
-    value: "$150K - $430K",
+    value: "$135K - $435K",
     label: "Price Range",
   },
   {
-    value: "$235.2K",
+    value: "$243.1K",
     label: "Average Sale Price",
   },
 ];
