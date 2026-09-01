@@ -2747,15 +2747,6 @@ button {
   color: var(--blue);
 }
 
-.admin-card__eyebrow {
-  margin: 0 0 8px;
-  color: var(--blue);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
 .admin-card h1,
 .admin-access-denied h2 {
   margin: 0;
@@ -2766,7 +2757,6 @@ button {
   letter-spacing: var(--heading-spacing);
 }
 
-.admin-card__heading > div > p:last-child,
 .admin-access-denied p {
   max-width: 620px;
   margin: 14px 0 0;

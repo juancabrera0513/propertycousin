@@ -99,11 +99,7 @@ function AdminResetPassword() {
                 <LockKeyhole size={24} />
               </span>
               <div>
-                <p className="admin-card__eyebrow">Secure account</p>
-                <h1>Choose a new password</h1>
-                <p>
-                  Create a strong password you do not use for any other account.
-                </p>
+                <h1>Set a new password</h1>
               </div>
             </div>
 

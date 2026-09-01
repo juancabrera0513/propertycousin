@@ -13,6 +13,13 @@ import { getSiteStats, updateSiteStats } from "../services/siteStats";
 
 const initialLogin = { email: "", password: "" };
 
+const STAT_NAMES = {
+  1: "Closed Sales",
+  2: "Total Sales Volume",
+  3: "Price Range",
+  4: "Average Sale Price",
+};
+
 function getFriendlyError(error, fallback) {
   const message = error?.message?.toLowerCase() || "";
 
@@ -191,11 +198,7 @@ function AdminStats() {
                 <ShieldCheck size={24} />
               </span>
               <div>
-                <p className="admin-card__eyebrow">Private area</p>
-                <h1>Website statistics</h1>
-                <p>
-                  Sign in to update the figures displayed on the home page.
-                </p>
+                <h1>Update statistics</h1>
               </div>
             </div>
 
@@ -306,7 +309,7 @@ function AdminStats() {
                 <div className="admin-editor__grid">
                   {stats.map((stat) => (
                     <fieldset className="admin-stat" key={stat.id}>
-                      <legend>Statistic {stat.sort_order}</legend>
+                      <legend>{STAT_NAMES[stat.sort_order]}</legend>
                       <label>
                         Value
                         <input
@@ -319,7 +322,7 @@ function AdminStats() {
                         />
                       </label>
                       <label>
-                        Label
+                        Website label
                         <input
                           maxLength="80"
                           onChange={(event) =>

@@ -52,12 +52,7 @@ function AdminForgotPassword() {
                 <KeyRound size={24} />
               </span>
               <div>
-                <p className="admin-card__eyebrow">Account recovery</p>
-                <h1>Reset your password</h1>
-                <p>
-                  Enter the email address connected to your account and we will
-                  send you a secure reset link.
-                </p>
+                <h1>Forgot your password?</h1>
               </div>
             </div>
 
