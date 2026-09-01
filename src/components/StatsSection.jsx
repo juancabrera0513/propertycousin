@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { stats } from "../data/stats";
+import { FALLBACK_SITE_STATS, getSiteStats } from "../services/siteStats";
 
 function parseStatValue(value) {
   const text = String(value).trim();
@@ -114,6 +114,19 @@ function AnimatedStatValue({ value, shouldAnimate }) {
 function StatsSection() {
   const sectionRef = useRef(null);
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [stats, setStats] = useState(FALLBACK_SITE_STATS);
+
+  useEffect(() => {
+    let isActive = true;
+
+    getSiteStats().then((items) => {
+      if (isActive) setStats(items);
+    });
+
+    return () => {
+      isActive = false;
+    };
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;

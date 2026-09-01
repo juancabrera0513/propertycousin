@@ -1,0 +1,49 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/site_admins/$(request.auth.uid));
+    }
+
+    function validStat(index) {
+      let stat = request.resource.data.items[index];
+      return stat.keys().hasOnly(['id', 'value', 'label', 'sort_order'])
+        && stat.id is string
+        && stat.id.size() > 0
+        && stat.id.size() <= 40
+        && stat.value is string
+        && stat.value.size() > 0
+        && stat.value.size() <= 30
+        && stat.label is string
+        && stat.label.size() > 0
+        && stat.label.size() <= 80
+        && stat.sort_order is int
+        && stat.sort_order == index + 1;
+    }
+
+    match /site_content/stats {
+      allow read: if true;
+      allow create, update: if isAdmin()
+        && request.resource.data.keys().hasOnly(['items', 'updatedAt'])
+        && request.resource.data.items is list
+        && request.resource.data.items.size() == 4
+        && validStat(0)
+        && validStat(1)
+        && validStat(2)
+        && validStat(3)
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }
+
+    match /site_admins/{userId} {
+      allow get: if request.auth != null && request.auth.uid == userId;
+      allow list, create, update, delete: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

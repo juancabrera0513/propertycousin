@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Navigate, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -8,6 +8,10 @@ import About from "./pages/About";
 import Listings from "./pages/Listings";
 import ListingDetail from "./pages/ListingDetail";
 import NotFound from "./pages/NotFound";
+
+const AdminStats = lazy(() => import("./pages/AdminStats"));
+const AdminForgotPassword = lazy(() => import("./pages/AdminForgotPassword"));
+const AdminResetPassword = lazy(() => import("./pages/AdminResetPassword"));
 
 function ScrollToTop() {
   const { hash, key, pathname } = useLocation();
@@ -78,12 +82,48 @@ function App() {
           />
           <Route path="/listings" element={<Listings />} />
           <Route path="/listings/:mls/:listingID" element={<ListingDetail />} />
+          <Route
+            path="/admin"
+            element={
+              <Suspense fallback={<AdminRouteLoading />}>
+                <AdminStats />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/forgot-password"
+            element={
+              <Suspense fallback={<AdminRouteLoading />}>
+                <AdminForgotPassword />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/reset-password"
+            element={
+              <Suspense fallback={<AdminRouteLoading />}>
+                <AdminResetPassword />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
 
       <Footer />
     </div>
+  );
+}
+
+function AdminRouteLoading() {
+  return (
+    <section className="section admin-page">
+      <div className="container admin-page__container">
+        <p className="admin-loading" role="status">
+          Loading secure area&hellip;
+        </p>
+      </div>
+    </section>
   );
 }
 
